@@ -3,7 +3,7 @@ defmodule Skeleton.Cast.VideoUrl do
 
   @videos_regexp %{
     youtube:
-      ~S"((http|https)?:\/\/(www\.)?:youtube\.com\/\S*(?:(?:\/e(?:mbed))?\/|watch\?(?:\S*?&?v\=))|youtu\.be\/)([a-zA-Z0-9_-]{6,11})",
+      ~S"^(https?:\/\/)((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$",
     vimeo:
       ~S"(http|https)?:\/\/(www\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|)(\d+)(?:|\/\?)"
   }
