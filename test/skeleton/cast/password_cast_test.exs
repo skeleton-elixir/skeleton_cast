@@ -75,7 +75,7 @@ defmodule Skeleton.Cast.PasswordTest do
 
   describe "Validating password with all options enabled" do
     test "valid password" do
-      changeset = cast("abcdefghij1$L", size: 10, number: true, uppercase: true, downcase: true, character: true)
+      changeset = cast("abcdefghij1-L", size: 10, number: true, uppercase: true, downcase: true, character: true)
       assert changeset.valid?
       assert changeset.changes[:password]
     end

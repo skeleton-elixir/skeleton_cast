@@ -1,7 +1,7 @@
 defmodule Skeleton.Cast.Password do
   import Ecto.Changeset
 
-  @password_regexp "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*?&,])(?=.{8,})"
+  @password_regexp "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*?&,-])(?=.{8,})"
 
   def cast_password(changeset, field, opts \\ []) do
     changeset
@@ -37,7 +37,7 @@ defmodule Skeleton.Cast.Password do
     regexp_list = regexp_list ++ if opts[:uppercase], do: ["(?=.*[A-Z])"], else: []
     regexp_list = regexp_list ++ if opts[:downcase], do: ["(?=.*[a-z])"], else: []
     regexp_list = regexp_list ++ if opts[:number], do: ["(?=.*[0-9])"], else: []
-    regexp_list = regexp_list ++ if opts[:character], do: ["(?=.*[@$!%*?&])"], else: []
+    regexp_list = regexp_list ++ if opts[:character], do: ["(?=.*[@$!%*?&,-])"], else: []
     regexp_list = regexp_list ++ if size = opts[:size], do: ["(?=.{#{size},})"], else: []
     regexp_list = regexp_list ++ if regexp_list == [], do: [@password_regexp], else: regexp_list
 
